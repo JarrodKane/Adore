@@ -6,6 +6,7 @@ const getProducts = async () => {
       "https://www.adorebeauty.com.au/api/ecommerce/catalog/products"
     );
     console.log(response);
+    return response;
   } catch (error) {
     console.error(error);
   }

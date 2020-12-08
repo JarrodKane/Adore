@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { getProducts } from "./helpers/axios";
+import Loader from "./helpers/Loader";
 
 import List from "./List";
 import Detail from "./Detail";
@@ -30,7 +31,6 @@ const Content = styled.div`
 function App() {
   // Initially setting resource to an empty array
   const [resource, setResource] = useState([]);
-
   return (
     <Router>
       <div className="App">
@@ -55,6 +55,9 @@ function App() {
             >
               CLICK
             </button>
+            {resource.length === 0 ? <Loader /> : <div>Results</div>}
+
+            {}
             <Switch>
               <Route path="/list">
                 <List />

@@ -6,6 +6,8 @@ Catalogue using Adore Beauty API
 
 - Axios for data fetching
 - React router for page nav
+- Styled Components for style
+- react-loader-spinner for loader
 
 - [ ] List view
 
