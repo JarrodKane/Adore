@@ -4,21 +4,32 @@ Catalogue using Adore Beauty API
 
 ## 3rd party libaries used
 
+- Used Created-react-app
 - Axios for data fetching
 - React router for page nav
 - Styled Components for style
 - react-loader-spinner for loader
+- html-react-parser for the descriptions
 
 - [ ] List view
 
-  - [ ] Fetch products async
-  - [ ] Store in state hooks
+  - [x] Fetch products async
+  - [x] Store in state hooks
   - [ ] Show loader while wating on async
-  - [ ] Filter by categories
-  - [ ] Click through to single detial page
+  - [x] Filter by categories
+  - [x] Click through to single detial page
   - [ ] Pagination with 100(filtered) results per page
 
-- [ ] Detail view -[ ] Show single resouce with details -[ ] provide link to main list
+- [x] Detail view -[x] Show single resouce with details -[x] provide link to main list
+
+## Todo
+
+- [ ] Add in uuid
+- [ ] pagnation
+- [ ] user to select filters for categories instead of the set ones
+- [ ] search by name/id
+- [ ] change the URL for the product, so when one is selected it changes to the name of the product
+- [ ] styling to the overall project
 
 # Getting Started with Create React App
 

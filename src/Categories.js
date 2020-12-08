@@ -11,11 +11,9 @@ const Item = styled.div`
   cursor: pointer;
 `;
 
+// These filters are currently a set selection
+// TODO: change so that it's not a set selection, and that the user can select them
 export default function List({ callCat, data }) {
-  //   const rows = data.map((product, index) => (
-  //     <Row key={product.id} product={product} />
-  //   ));
-
   return (
     <Row>
       <Item

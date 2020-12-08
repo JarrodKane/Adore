@@ -5,9 +5,7 @@ import styled from "styled-components";
 import { getProducts, getCat } from "./helpers/axios";
 
 import Home from "./Home";
-import List from "./List";
 import Detail from "./Detail";
-import Categories from "./Categories";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -24,15 +22,11 @@ const Body = styled.div`
   padding: 0 16px;
 `;
 
-// Wanted the content to take up as much of the screen as it can with the footer at the bottom
-const Content = styled.div`
-  flex-grow: 1;
-`;
-
 function App() {
   // Initially setting resource to an empty array
   const [resource, setResource] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [prod, setProd] = useState();
 
   // This is called once at the load to get the initial data
   useEffect(() => {
@@ -55,6 +49,14 @@ function App() {
     setResource(products.data);
   };
 
+  // This is called when someone clicks on a product to select, it will then update the route in the router
+  //It sets the product to the one selected which updates the state for it
+  const selectProd = (id) => {
+    const foundProd = resource.data.filter((prod) => prod.id === id);
+
+    setProd(foundProd);
+  };
+
   return (
     <Router>
       <div className="App">
@@ -63,39 +65,24 @@ function App() {
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/detail">Details</Link>
+                <Link to="/home">Home</Link>
               </li>
             </ul>
           </nav>
 
-          <Content>
-            {/* {resource.length === 0 ? <Loader /> : <List data={resource.data} />} */}
-            {categories.length === 0 ? (
-              <></>
-            ) : (
-              <>
-                <Categories callCat={callCat} data={categories} />
-                {/* <List data={resource} /> */}
-              </>
-            )}
-
-            {}
-            <Switch>
-              <Route path="/">
-                <Home
-                  categories={categories}
-                  resource={resource}
-                  callCat={callCat}
-                />
-              </Route>
-              <Route path="/detail">
-                <Detail />
-              </Route>
-            </Switch>
-          </Content>
+          <Switch>
+            <Route path="/home">
+              <Home
+                categories={categories}
+                resource={resource}
+                callCat={callCat}
+                selectProd={selectProd}
+              />
+            </Route>
+            <Route path="/detail">
+              <Detail prod={prod} categories={categories} />
+            </Route>
+          </Switch>
           <Footer />
         </Body>
       </div>

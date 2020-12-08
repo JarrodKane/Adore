@@ -15,7 +15,7 @@ const getProducts = async (cat) => {
 const getCat = async () => {
   try {
     const response = await axios.get(
-      "https://www.adorebeauty.com.au/api/ecommerce/catalog/categories "
+      "https://www.adorebeauty.com.au/api/ecommerce/catalog/categories?limit=300 "
     );
     // console.log(response);
     return response.data;
