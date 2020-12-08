@@ -65,13 +65,13 @@ function App() {
           <nav>
             <ul>
               <li>
-                <Link to="/home">Home</Link>
+                <Link to="/">Home</Link>
               </li>
             </ul>
           </nav>
 
           <Switch>
-            <Route path="/home">
+            <Route path="/" exact>
               <Home
                 categories={categories}
                 resource={resource}

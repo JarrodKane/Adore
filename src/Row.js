@@ -18,8 +18,10 @@ const Item = styled.div`
   }
 `;
 
+// TODO: change out the Link into a styled Link to get rid of the inline styling
+
 // Super hacky way of creating a route to the page
-// Todo : Change the route so instead of showing "Detail" it shows the name of the product in the URL
+// TODO: Change the route so instead of showing "Detail" it shows the name of the product in the URL
 
 export default function Row(props) {
   const { id, name, sku } = props.product;
@@ -31,6 +33,7 @@ export default function Row(props) {
       onClick={() => {
         selectProd(id);
       }}
+      style={{ textDecoration: "none" }}
     >
       <Item>
         <p>

@@ -36,7 +36,7 @@ export default function Detail(props) {
   return (
     <Content>
       <p>Name: {name}</p>
-      <p>Price: {calculated_price}</p>
+      <p>Price: ${calculated_price}</p>
       <Category>
         <h4>categories:</h4>
         {stringCats.map((txt, id) => (

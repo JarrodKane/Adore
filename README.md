@@ -30,6 +30,7 @@ Catalogue using Adore Beauty API
 - [ ] search by name/id
 - [ ] change the URL for the product, so when one is selected it changes to the name of the product
 - [ ] styling to the overall project
+- [ ] on the lists component, change the Link to use sytled-comp instead of inline styling
 
 # Getting Started with Create React App
 
