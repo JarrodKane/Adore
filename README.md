@@ -1,3 +1,22 @@
+# Adore challange
+
+Catalogue using Adore Beauty API
+
+## 3rd party libaries used
+
+- Axios for data fetching
+
+- [ ] List view
+
+  - [ ] Fetch products async
+  - [ ] Store in state hooks
+  - [ ] Show loader while wating on async
+  - [ ] Filter by categories
+  - [ ] Click through to single detial page
+  - [ ] Pagination with 100(filtered) results per page
+
+- [ ] Detail view -[ ] Show single resouce with details -[ ] provide link to main list
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
