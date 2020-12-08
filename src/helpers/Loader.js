@@ -1,11 +1,19 @@
 import Loader from "react-loader-spinner";
+import styled from "styled-components";
+
+const Sloader = styled.div`
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
 const LoadingIndicator = (props) => {
   return (
-    <div>
+    <Sloader>
       <Loader type="Circles" color="#00BFFF" height={100} width={100} />
-      <h1>Hey some async call in progress!</h1>
-    </div>
+    </Sloader>
   );
 };
 

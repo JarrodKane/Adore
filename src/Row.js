@@ -43,5 +43,3 @@ export default function Row(props) {
     </Link>
   );
 }
-
-// return <Link to="/detail">Detail</Link>;

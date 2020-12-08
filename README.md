@@ -15,7 +15,7 @@ Catalogue using Adore Beauty API
 
   - [x] Fetch products async
   - [x] Store in state hooks
-  - [ ] Show loader while wating on async
+  - [x] Show loader while wating on async
   - [x] Filter by categories
   - [x] Click through to single detial page
   - [ ] Pagination with 100(filtered) results per page

@@ -27,10 +27,13 @@ function App() {
   const [resource, setResource] = useState([]);
   const [categories, setCategories] = useState([]);
   const [prod, setProd] = useState();
+  // This keeps track of if there is an async in progress
+  const [asyncNow, setAsyncNow] = useState(false);
 
   // This is called once at the load to get the initial data
   useEffect(() => {
     init();
+
     //console.log(resource);
     return () => {
       //cleanup;
@@ -40,12 +43,13 @@ function App() {
   // The initial call to get the basic
   const init = async () => {
     const categories = await getCat();
+
     setCategories(categories);
   };
 
   //Calling with categorie selected
   const callCat = async (id) => {
-    const products = await getProducts(id);
+    const products = await getProducts(id, 0, setAsyncNow);
     setResource(products.data);
   };
 
@@ -53,7 +57,6 @@ function App() {
   //It sets the product to the one selected which updates the state for it
   const selectProd = (id) => {
     const foundProd = resource.data.filter((prod) => prod.id === id);
-
     setProd(foundProd);
   };
 
@@ -77,6 +80,7 @@ function App() {
                 resource={resource}
                 callCat={callCat}
                 selectProd={selectProd}
+                asyncNow={asyncNow}
               />
             </Route>
             <Route path="/detail">
