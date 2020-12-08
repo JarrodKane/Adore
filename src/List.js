@@ -1,7 +1,7 @@
 import React from "react";
 import Loader from "./helpers/Loader";
 
-import Row from "./components/Row";
+import Row from "./Row";
 
 export default function List(props) {
   const data = props.resource;
