@@ -5,6 +5,7 @@ Catalogue using Adore Beauty API
 ## 3rd party libaries used
 
 - Axios for data fetching
+- React router for page nav
 
 - [ ] List view
 

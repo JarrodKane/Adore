@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 
+import { getProducts } from "./helpers/axios";
+
 import List from "./List";
 import Detail from "./Detail";
 import Header from "./components/Header";
@@ -26,6 +28,9 @@ const Content = styled.div`
 `;
 
 function App() {
+  // Initially setting resource to an empty array
+  const [resource, setResource] = useState([]);
+
   return (
     <Router>
       <div className="App">
@@ -43,6 +48,13 @@ function App() {
           </nav>
 
           <Content>
+            <button
+              onClick={() => {
+                getProducts();
+              }}
+            >
+              CLICK
+            </button>
             <Switch>
               <Route path="/list">
                 <List />
