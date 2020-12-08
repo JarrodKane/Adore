@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { getProducts } from "./helpers/axios";
-import Loader from "./helpers/Loader";
+import { getProducts, getCat } from "./helpers/axios";
 
+import Home from "./Home";
 import List from "./List";
 import Detail from "./Detail";
+import Categories from "./Categories";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -31,6 +32,29 @@ const Content = styled.div`
 function App() {
   // Initially setting resource to an empty array
   const [resource, setResource] = useState([]);
+  const [categories, setCategories] = useState([]);
+
+  // This is called once at the load to get the initial data
+  useEffect(() => {
+    init();
+    //console.log(resource);
+    return () => {
+      //cleanup;
+    };
+  }, []);
+
+  // The initial call to get the basic
+  const init = async () => {
+    const categories = await getCat();
+    setCategories(categories);
+  };
+
+  //Calling with categorie selected
+  const callCat = async (id) => {
+    const products = await getProducts(id);
+    setResource(products.data);
+  };
+
   return (
     <Router>
       <div className="App">
@@ -39,7 +63,7 @@ function App() {
           <nav>
             <ul>
               <li>
-                <Link to="/list">Home</Link>
+                <Link to="/">Home</Link>
               </li>
               <li>
                 <Link to="/detail">Details</Link>
@@ -48,19 +72,24 @@ function App() {
           </nav>
 
           <Content>
-            <button
-              onClick={() => {
-                getProducts();
-              }}
-            >
-              CLICK
-            </button>
-            {resource.length === 0 ? <Loader /> : <div>Results</div>}
+            {/* {resource.length === 0 ? <Loader /> : <List data={resource.data} />} */}
+            {categories.length === 0 ? (
+              <></>
+            ) : (
+              <>
+                <Categories callCat={callCat} data={categories} />
+                {/* <List data={resource} /> */}
+              </>
+            )}
 
             {}
             <Switch>
-              <Route path="/list">
-                <List />
+              <Route path="/">
+                <Home
+                  categories={categories}
+                  resource={resource}
+                  callCat={callCat}
+                />
               </Route>
               <Route path="/detail">
                 <Detail />
